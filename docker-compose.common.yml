@@ -1,0 +1,21 @@
+version: '2.4'
+services:
+  shapley-io-ui:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: shapley-io-ui
+      args:
+        - REVISION=${REVISION:-development}
+        - VERSION=${VERSION:-development}
+    image: shapley/shapley-io-ui:${REVISION:-development}
+    tty: true
+
+  shapley-io-ui-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: shapley-io-ui-dev
+      args:
+        - REVISION=${REVISION:-development}
+        - VERSION=${VERSION:-development}

@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+  shapley-io-ui:
+    container_name: shapley-io-ui
+    extends:
+      file: docker-compose.common.yml
+      service: shapley-io-ui
+    ports:
+      - "8080:80"
+    # environment:
+    networks:
+      - backend
+
+  shapley-io-ui-dev:
+    container_name: shapley-io-ui-dev
+    extends:
+      file: docker-compose.common.yml
+      service: shapley-io-ui-dev
+    ports:
+      - "8081:80"
+    volumes:
+      - ./src:.
+    # environment:
+    networks:
+      - backend
+
+networks:
+  backend:

@@ -1,0 +1,20 @@
+# deployment.yaml for shapley-io-ui
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shapley-io-ui
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: shapley-io-ui
+  template:
+    metadata:
+      labels:
+        app: shapley-io-ui
+    spec:
+      containers:
+      - name: shapley-io-ui
+        image: shapley/shapley-io-ui:latest
+        ports:
+        - containerPort: 8080

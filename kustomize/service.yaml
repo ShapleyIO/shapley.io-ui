@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: shapley-io-ui
+spec:
+  selector:
+    app: shapley-io-ui
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
